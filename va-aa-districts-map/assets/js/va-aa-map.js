@@ -164,7 +164,7 @@
         .attr('d', path)
         .attr('data-district', function(d) { return d.properties.district; })
         .style('fill', function(d) { return distColor(d.properties.district); })
-        .style('fill-opacity', 0.45)
+        .style('fill-opacity', 0.55)
         .style('stroke', '#fff').style('stroke-width', 1)
         .style('cursor', 'pointer')
         .on('mouseenter', onBoundaryHover).on('mousemove', onMove)
@@ -329,7 +329,7 @@
       var dId = +el.attr('data-district');
       if (dId === distId && dId !== activeDistrictId) {
         el.style('fill', isHover ? hoverColor() : distColor(dId));
-        el.style('fill-opacity', isHover ? 0.65 : 0.45);
+        el.style('fill-opacity', isHover ? 0.75 : 0.55);
         el.style('stroke-width', isHover ? 1.5 : 1);
       }
     });
@@ -346,7 +346,7 @@
       var el = d3.select(this);
       if (+el.attr('data-district') === distId) {
         el.style('fill', activeColor())
-          .style('fill-opacity', 0.75)
+          .style('fill-opacity', 0.85)
           .style('stroke', '#fff')
           .style('stroke-width', 1.5)
           .classed('vaaa-active', true);
@@ -398,7 +398,7 @@
       var el = d3.select(this);
       var dId = +el.attr('data-district');
       el.style('fill', distColor(dId))
-        .style('fill-opacity', 0.45)
+        .style('fill-opacity', 0.55)
         .style('stroke', '#fff')
         .style('stroke-width', 1)
         .classed('vaaa-active', false);

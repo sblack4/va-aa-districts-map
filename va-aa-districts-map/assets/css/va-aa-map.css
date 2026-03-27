@@ -20,7 +20,7 @@
 .vaaa-map-layout {
   display: grid;
   grid-template-columns: 1fr 360px;
-  gap: 1.5rem;
+  gap: 0.75rem;
   min-height: 600px;
 }
 
