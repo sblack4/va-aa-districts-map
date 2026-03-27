@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name: Virginia AA Districts Map
- * Plugin URI:  https://github.com/sblack4/vac
+ * Plugin URI:  https://github.com/sblack4/va-aa-districts-map
  * Description: Interactive map of Virginia Area AA districts. Use the shortcode [va_aa_map] to embed the map on any page or post. Edit district data and county-to-district mappings from the WordPress admin.
  * Version:     2.0.0
  * Author:      Virginia AA
@@ -552,7 +552,7 @@ function vaaa_dynamic_data_url( $src, $handle ) {
  *    To release: create a GitHub release tagged vX.Y.Z
  *    and attach va-aa-districts-map.zip as a release asset.
  * ────────────────────────────────────────────── */
-define( 'VAAA_GITHUB_REPO', 'sblack4/vac' );
+define( 'VAAA_GITHUB_REPO', 'sblack4/va-aa-districts-map' );
 
 add_filter( 'pre_set_site_transient_update_plugins', 'vaaa_check_github_update' );
 function vaaa_check_github_update( $transient ) {
