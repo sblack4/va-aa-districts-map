@@ -1,0 +1,570 @@
+{
+  "districts": [
+    {
+      "id": 1,
+      "name": "Alexandria (Del Ray)",
+      "meeting": "Last Wednesday at 6:45 PM (except Nov/Dec, adjusted for holidays)",
+      "location": "Grace Episcopal Church, 3rd Flr \u2013 Alanon Room\n3601 Russell Road\nAlexandria, VA 22305",
+      "email": "dcm1@aavirginia.org",
+      "region": "nova"
+    },
+    {
+      "id": 2,
+      "name": "Arlington",
+      "meeting": "1st Monday at 7:00 PM",
+      "location": "Resurrection Lutheran Church\n6201 Washington Boulevard\nArlington, VA 22205",
+      "email": "dcm2@aavirginia.org",
+      "region": "nova"
+    },
+    {
+      "id": 3,
+      "name": "North Piedmont",
+      "meeting": "3rd Tuesday at 6:30 PM",
+      "location": "North Piedmont Intergroup Office\n245 Alleghany Ave\nLynchburg, VA 24501",
+      "email": "dcm3@aavirginia.org",
+      "region": "central"
+    },
+    {
+      "id": 4,
+      "name": "Dulles",
+      "meeting": "3rd Wednesday at 7:00 PM",
+      "location": "St. Anne's Episcopal Church\n1700 Wainwright Drive\nReston, VA 20190",
+      "email": "dcm4@aavirginia.org",
+      "region": "nova",
+      "sharesFairfax": true
+    },
+    {
+      "id": 5,
+      "name": "Fairfax",
+      "meeting": "2nd Wednesday",
+      "location": "Fairfax Presbyterian Church\n10723 Main Street\nFairfax, VA 22030",
+      "email": "dcm5@aavirginia.org",
+      "region": "nova"
+    },
+    {
+      "id": 6,
+      "name": "Falls Church",
+      "meeting": "2nd Monday at 6:00 PM",
+      "location": null,
+      "email": "dcm6@aavirginia.org",
+      "zoom": "819 8943 6933 / Passcode: BillW",
+      "region": "nova"
+    },
+    {
+      "id": 7,
+      "name": "Constitution",
+      "meeting": null,
+      "location": null,
+      "email": null,
+      "region": "nova",
+      "sharesFairfax": true
+    },
+    {
+      "id": 8,
+      "name": "Hampton",
+      "meeting": "2nd Tuesday at 6:30 PM",
+      "location": "St. Mark's UMC\n99 E. Mercury Blvd\nHampton, VA 23669",
+      "email": "dcm8@aavirginia.org",
+      "region": "tidewater"
+    },
+    {
+      "id": 9,
+      "name": "Heart of Virginia",
+      "meeting": "2nd Monday at 7:00 PM",
+      "location": "Westminster Presbyterian\n400 Rugby Rd\nCharlottesville, VA 22903",
+      "email": "dcm9@aavirginia.org",
+      "region": "central"
+    },
+    {
+      "id": 10,
+      "name": "Loudoun",
+      "meeting": "1st Wednesday, 6:30 \u2013 8:00 PM",
+      "location": "Holy Trinity Lutheran Church\n605 W Market St.\nLeesburg, VA 20176",
+      "email": "dcm10@aavirginia.org",
+      "region": "nova"
+    },
+    {
+      "id": 11,
+      "name": "Mount Vernon",
+      "meeting": "3rd Mondays at 7:00 PM (Hybrid)",
+      "location": "Mt Vernon UMC, Rm 216\n2006 Belle View Blvd\nAlexandria, 22307",
+      "email": "dcm11@aavirginia.org",
+      "zoom": "https://meet.google.com/qya-wwkn-qbb",
+      "region": "nova",
+      "sharesFairfax": true
+    },
+    {
+      "id": 12,
+      "name": "Newport News",
+      "meeting": "4th Wednesday",
+      "location": "Warwick United Church of Christ\n10 Matoaka Ln\nNewport News, VA 23601",
+      "email": "dcm12@aavirginia.org",
+      "region": "tidewater"
+    },
+    {
+      "id": 13,
+      "name": "SWVA",
+      "meeting": "3rd Saturday at 1:00 PM",
+      "location": "Holy Trinity Lutheran Church\n405 West Main St.\nWytheville, VA 24382",
+      "email": "dcm13@aavirginia.org",
+      "region": "sw"
+    },
+    {
+      "id": 14,
+      "name": "Norfolk",
+      "meeting": "1st Tuesday at 7:30 PM",
+      "location": "Easy Does It Center\n1153 Harmony Road\nNorfolk, VA 23502",
+      "email": "dcm14@aavirginia.org",
+      "region": "tidewater"
+    },
+    {
+      "id": 15,
+      "name": "Northern Neck",
+      "meeting": "3rd Sunday of Odd Months at 2:00 PM",
+      "location": "St. Francis Catholic Church\n154 E. Church Street\nKilmarnock, VA 22482",
+      "email": "dcm15@aavirginia.org",
+      "region": "east"
+    },
+    {
+      "id": 16,
+      "name": "South Central",
+      "meeting": "2nd Saturday at 10:30 AM",
+      "location": "Tri-City Club\n110 N. Union Street\nPetersburg, VA 23803",
+      "email": "dcm16@aavirginia.org",
+      "region": "central"
+    },
+    {
+      "id": 17,
+      "name": "South Piedmont",
+      "meeting": "3rd Sunday at 2:30 PM",
+      "location": "First Presbyterian Church\n937 Main St\nDanville, VA 24541",
+      "email": "dcm17@aavirginia.org",
+      "region": "south"
+    },
+    {
+      "id": 18,
+      "name": "City of Richmond",
+      "meeting": "2nd Monday \u2013 HYBRID, 7:00 PM (Zoom open 7:15)",
+      "location": "1407 Sherwood Avenue (entrance 4)\nRichmond, VA 23220",
+      "email": "dcm18@aavirginia.org",
+      "zoom": "https://us02web.zoom.us/j/6264040559?pwd=aTU4QXc5U0FTVVp2S2F5M2RBaGN5UT09 / ID: 895-4618-1976 / Passcode: 522475",
+      "region": "central"
+    },
+    {
+      "id": 19,
+      "name": "Roanoke Valley",
+      "meeting": "2nd Monday at 6:30 PM",
+      "location": "Christ Lutheran Church\n2011 Brandon Ave., SW\nRoanoke, VA 24015",
+      "email": "dcm19@aavirginia.org",
+      "region": "sw"
+    },
+    {
+      "id": 20,
+      "name": "Appalachian Mountain Region",
+      "meeting": null,
+      "location": null,
+      "email": "dcm20@aavirginia.org",
+      "region": "sw"
+    },
+    {
+      "id": 21,
+      "name": "Springfield",
+      "meeting": "Quarterly in-person (month varies); otherwise via Zoom",
+      "location": "St. Barnabas Episcopal Church\n4801 Ravensworth Rd #5551\nAnnandale, VA 22003",
+      "email": "dcm21@aavirginia.org",
+      "zoom": "https://us02web.zoom.us/j/84916417493?pwd=JJOxSyS6sTgSOBgl39Cg7LauGvxRxN.1 / Passcode: 212121",
+      "region": "nova",
+      "sharesFairfax": true
+    },
+    {
+      "id": 22,
+      "name": "Shenandoah Valley",
+      "meeting": "3rd Sunday at 2:00 PM",
+      "location": "Harrisonburg Club\n120 Waterman Dr.\nHarrisonburg, VA 22802",
+      "email": "dcm22@aavirginia.org",
+      "region": "valley"
+    },
+    {
+      "id": 23,
+      "name": "Virginia Beach",
+      "meeting": "1st Thursday at 7:30 PM",
+      "location": "Thalia United Christian Church\n4321 Virginia Beach Blvd\nVirginia Beach, VA 23452",
+      "email": "dcm23@aavirginia.org",
+      "region": "tidewater"
+    },
+    {
+      "id": 24,
+      "name": "Western Tidewater",
+      "meeting": "2nd Monday at 7:30 PM",
+      "location": "Scout Cabin\n1800 Ran Avenue\nPortsmouth, VA 23707",
+      "email": "dcm24@aavirginia.org",
+      "region": "tidewater"
+    },
+    {
+      "id": 25,
+      "name": "Wilson",
+      "inactive": true,
+      "meeting": null,
+      "location": null,
+      "email": null,
+      "region": "nova"
+    },
+    {
+      "id": 26,
+      "name": "Winchester",
+      "meeting": "2nd Friday at 6:00 PM",
+      "location": "Friends Meeting House\n203 N Washington St\nWinchester, VA 22601\n(Corner Washington/Piccadilly)",
+      "email": "dcm26@aavirginia.org",
+      "region": "valley"
+    },
+    {
+      "id": 27,
+      "name": "Eastern Shore",
+      "meeting": null,
+      "location": null,
+      "email": null,
+      "region": "east"
+    },
+    {
+      "id": 28,
+      "name": "Woodbridge",
+      "meeting": "3rd Thursday at 7:00 PM",
+      "location": "Bethel United Methodist\n13506 Minnieville Road\nWoodbridge, VA 22192",
+      "email": "dcm28@aavirginia.org",
+      "region": "nova"
+    },
+    {
+      "id": 29,
+      "name": "South of the James",
+      "meeting": "3rd Monday \u2013 Committees 6:00 PM, Main meeting 7:00 PM",
+      "location": "Celebration Center\n879 Research Rd\nN. Chesterfield, VA 23236",
+      "email": "dcm29@aavirginia.org",
+      "region": "central"
+    },
+    {
+      "id": 30,
+      "name": "Fredericksburg",
+      "meeting": "3rd Wednesday at 7:00 PM",
+      "location": "American Legion Post #55\n461 Woodford St.\nFredericksburg, VA 22401",
+      "email": "dcm30@aavirginia.org",
+      "region": "central"
+    },
+    {
+      "id": 31,
+      "name": "Mountain View",
+      "meeting": "3rd Wednesday \u2013 Currently on Zoom",
+      "location": null,
+      "email": "dcm31@aavirginia.org",
+      "altEmail": "AALexingtonVA@gmail.com",
+      "region": "valley"
+    },
+    {
+      "id": 32,
+      "name": "Oceanfront",
+      "meeting": "2nd Thursday at 6:30 PM",
+      "location": "Good Shepherd Church\n1489 Laskin Rd\nVirginia Beach, VA 23451",
+      "email": "dcm32@aavirginia.org",
+      "region": "tidewater",
+      "sharesVirginiaBeach": true
+    },
+    {
+      "id": 33,
+      "name": "Manassas",
+      "meeting": "2nd Tuesdays at 7:00 PM",
+      "location": "Bethel Lutheran Church\n8712 Plantation Ln.\nManassas, VA 20110",
+      "email": "dcm33@aavirginia.org",
+      "region": "nova"
+    },
+    {
+      "id": 34,
+      "name": "Stafford",
+      "inactive": true,
+      "meeting": null,
+      "location": null,
+      "email": null,
+      "region": "central"
+    },
+    {
+      "id": 35,
+      "name": "Fauquier",
+      "meeting": "1st Wednesday at 7:30 PM",
+      "location": "Warrenton Meeting Place\n26 S. 3rd St.\nWarrenton, VA 20186",
+      "email": "dcm35@aavirginia.org",
+      "region": "nova"
+    },
+    {
+      "id": 36,
+      "name": "Southside",
+      "meeting": "2nd Saturday at 10:30 AM",
+      "location": "Butler Memorial Library\n515 N. Marshall St\nChase City, VA 23924",
+      "email": "dcm36@aavirginia.org",
+      "region": "south"
+    },
+    {
+      "id": 37,
+      "name": "NE of Richmond",
+      "meeting": "2nd Tuesday at 7:00 PM",
+      "location": "Church of the Creator\n7159 Mechanicsville Turnpike\nMechanicsville, VA 23111",
+      "email": "dcm37@aavirginia.org",
+      "region": "central"
+    },
+    {
+      "id": 38,
+      "name": "Historic Virginia",
+      "meeting": "1st Wednesday at 6:30 PM",
+      "location": "4925 Centerville Road\nWilliamsburg, VA 23188",
+      "email": "dcm38@aavirginia.org",
+      "region": "tidewater"
+    },
+    {
+      "id": 39,
+      "name": "Piedmont",
+      "meeting": "3rd Thursday at 6:00 PM (Hybrid)",
+      "location": "Hebron Lutheran Church\n899 Blankenbaker Rd\nMadison, VA 22727",
+      "email": "dcm39@aavirginia.org",
+      "zoom": "https://us02web.zoom.us/j/82835989513 / ID: 828 3598 9513 / Passcode: 085094",
+      "region": "central"
+    },
+    {
+      "id": 40,
+      "name": "Skyline",
+      "meeting": "2nd Friday at 7:00 PM",
+      "location": "Weber Hall, 2nd St/Royal Ave\nFront Royal, VA 22630",
+      "email": "dcm40@aavirginia.org",
+      "zoom": "https://us04web.zoom.us/j/575904204 / Passcode: sober",
+      "region": "valley"
+    },
+    {
+      "id": 41,
+      "name": "Vienna",
+      "meeting": "2nd Wednesdays at 7:30 PM via Zoom",
+      "location": null,
+      "email": "dcm41@aavirginia.org",
+      "zoom": "https://us02web.zoom.us/j/89195016442 / ID: 891 9501 6442",
+      "region": "nova",
+      "sharesFairfax": true
+    },
+    {
+      "id": 42,
+      "name": "Centreville",
+      "meeting": "3rd Tuesday at 7:00 PM",
+      "location": "Ox Hill Baptist Church\n4101 Elmwood St\nChantilly, VA 20151",
+      "email": "dcm42@aavirginia.org",
+      "region": "nova",
+      "sharesFairfax": true
+    },
+    {
+      "id": 43,
+      "name": "Northside Richmond",
+      "meeting": "2nd Tuesday at 7:00 PM (Hybrid)",
+      "location": "Winns Baptist Church\n12320 Winns Church Rd\nGlen Allen, VA 23059",
+      "email": "dcm43@aavirginia.org",
+      "zoom": "919 2659 5022 (email info@district43rva.com for passcode)",
+      "region": "central"
+    },
+    {
+      "id": 45,
+      "name": "Alexandria Old Towne",
+      "meeting": "1st Thursday at 7:00 PM via Zoom",
+      "location": null,
+      "email": "dcm45@aavirginia.org",
+      "zoom": "https://us06web.zoom.us/j/89684754287?pwd=006IOTuzd11WNtEwJGp1ICWbU5YaBB.1 / ID: 896 8475 4287 / Passcode: 606072",
+      "region": "nova",
+      "sharesAlexandria": true
+    },
+    {
+      "id": 47,
+      "name": "Augusta",
+      "meeting": "Last Wednesday at 6:15 PM via Zoom",
+      "location": null,
+      "email": "dcm47@aavirginia.org",
+      "zoom": "https://us02web.zoom.us/j/85782930099 / ID: 857 8293 0099",
+      "region": "valley"
+    },
+    {
+      "id": 48,
+      "name": "Spanish Speaking (Statewide)",
+      "meeting": null,
+      "location": null,
+      "email": null,
+      "region": "statewide"
+    }
+  ],
+  "fipsToDistrict": {
+    "51001": 27,
+    "51003": 9,
+    "51005": 31,
+    "51007": 29,
+    "51009": 3,
+    "51011": 3,
+    "51013": 2,
+    "51015": 47,
+    "51017": 31,
+    "51019": 3,
+    "51029": 9,
+    "51031": 3,
+    "51035": 13,
+    "51043": 40,
+    "51047": 39,
+    "51049": 36,
+    "51053": 16,
+    "51059": 21,
+    "51061": 35,
+    "51063": 13,
+    "51065": 9,
+    "51069": 26,
+    "51071": 13,
+    "51075": 44,
+    "51077": 13,
+    "51079": 9,
+    "51081": 16,
+    "51083": 36,
+    "51085": 37,
+    "51087": 44,
+    "51089": 13,
+    "51101": 37,
+    "51105": 20,
+    "51107": 10,
+    "51109": 9,
+    "51111": 36,
+    "51113": 39,
+    "51117": 36,
+    "51119": 15,
+    "51125": 9,
+    "51127": 37,
+    "51131": 27,
+    "51135": 36,
+    "51137": 39,
+    "51139": 40,
+    "51141": 17,
+    "51143": 13,
+    "51145": 29,
+    "51147": 36,
+    "51149": 16,
+    "51155": 13,
+    "51157": 35,
+    "51159": 15,
+    "51161": 19,
+    "51163": 31,
+    "51165": 22,
+    "51167": 13,
+    "51171": 40,
+    "51173": 13,
+    "51175": 24,
+    "51183": 16,
+    "51185": 13,
+    "51187": 40,
+    "51191": 13,
+    "51195": 20,
+    "51197": 13,
+    "51199": 12,
+    "51510": 1,
+    "51520": 20,
+    "51530": 31,
+    "51540": 9,
+    "51550": 24,
+    "51570": 16,
+    "51590": 13,
+    "51595": 16,
+    "51600": 5,
+    "51630": 14,
+    "51650": 8,
+    "51670": 16,
+    "51678": 31,
+    "51680": 3,
+    "51685": 33,
+    "51690": 13,
+    "51700": 12,
+    "51710": 14,
+    "51730": 16,
+    "51735": 8,
+    "51740": 24,
+    "51760": 18,
+    "51790": 47,
+    "51800": 24,
+    "51810": 23,
+    "51820": 47,
+    "51830": 38,
+    "51840": 26,
+    "51021": 13,
+    "51023": 19,
+    "51025": 16,
+    "51027": 13,
+    "51033": 30,
+    "51036": 16,
+    "51037": 36,
+    "51041": 29,
+    "51045": 19,
+    "51051": 13,
+    "51057": 15,
+    "51067": 36,
+    "51073": 38,
+    "51091": 22,
+    "51093": 24,
+    "51095": 38,
+    "51097": 37,
+    "51099": 30,
+    "51103": 15,
+    "51115": 15,
+    "51121": 19,
+    "51133": 15,
+    "51153": 28,
+    "51169": 20,
+    "51177": 30,
+    "51179": 34,
+    "51181": 16,
+    "51193": 15,
+    "51515": 3,
+    "51580": 19,
+    "51610": 6,
+    "51620": 24,
+    "51640": 13,
+    "51660": 22,
+    "51683": 33,
+    "51720": 20,
+    "51750": 19,
+    "51770": 19,
+    "51775": 19
+  },
+  "sharedCountyDistricts": {
+    "6": [
+      "51059"
+    ],
+    "4": [
+      "51059",
+      "51107"
+    ],
+    "11": [
+      "51059"
+    ],
+    "28": [
+      "51059"
+    ],
+    "33": [
+      "51061"
+    ],
+    "37": [
+      "51087"
+    ],
+    "43": [
+      "51085",
+      "51087"
+    ],
+    "44": [
+      "51760"
+    ],
+    "9": [
+      "51113",
+      "51137"
+    ],
+    "45": [
+      "51510"
+    ],
+    "29": [
+      "51760"
+    ],
+    "32": [
+      "51810"
+    ]
+  }
+}

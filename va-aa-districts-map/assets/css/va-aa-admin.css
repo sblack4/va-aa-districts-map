@@ -1,0 +1,72 @@
+/* VA AA Districts Map — Admin Styles */
+
+.vaaa-admin-wrap { max-width: 960px; }
+
+/* ── Toolbar ── */
+.vaaa-districts-toolbar {
+  display: flex; align-items: center; gap: 1rem;
+  margin: 1rem 0; padding: 0.75rem 1rem;
+  background: #fff; border: 1px solid #c3c4c7; border-radius: 4px;
+  position: sticky; top: 32px; z-index: 10;
+}
+.vaaa-district-count { color: #646970; font-size: 13px; white-space: nowrap; }
+.vaaa-filter-input { flex: 1; max-width: 300px; }
+
+/* ── Accordion ── */
+.vaaa-accordion { margin-bottom: 1rem; }
+
+.vaaa-card {
+  background: #fff; border: 1px solid #c3c4c7; border-radius: 4px;
+  margin-bottom: 4px; transition: box-shadow 150ms ease;
+}
+.vaaa-card:hover { box-shadow: 0 1px 3px rgba(0,0,0,0.08); }
+.vaaa-card-inactive { opacity: 0.6; }
+.vaaa-card-warn .vaaa-card-header { border-left: 3px solid #dba617; }
+
+.vaaa-card-header {
+  display: flex; align-items: center; gap: 0.75rem;
+  padding: 0.6rem 1rem; cursor: pointer; user-select: none;
+}
+.vaaa-card-header:focus { outline: 2px solid #2271b1; outline-offset: -2px; }
+.vaaa-card-header[aria-expanded="true"] .vaaa-card-toggle {
+  transform: rotate(180deg);
+}
+
+.vaaa-card-num {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 28px; height: 28px; border-radius: 4px;
+  background: #f0f0f1; font-weight: 700; font-size: 12px; color: #2271b1;
+  flex-shrink: 0;
+}
+.vaaa-card-name { font-weight: 500; flex: 1; }
+.vaaa-card-badge {
+  font-size: 11px; padding: 2px 8px; border-radius: 3px; white-space: nowrap;
+}
+.vaaa-badge-off { background: #f0f0f1; color: #646970; }
+.vaaa-badge-warn { background: #fcf0c3; color: #8b6e00; }
+.vaaa-card-toggle { color: #646970; transition: transform 150ms ease; flex-shrink: 0; }
+
+.vaaa-card-body { padding: 0 1rem 1rem; border-top: 1px solid #f0f0f1; }
+.vaaa-field-table { margin-top: 0; }
+.vaaa-field-table th { width: 140px; padding: 8px 10px 8px 0; font-size: 13px; }
+.vaaa-field-table td { padding: 4px 0; }
+
+/* ── Preview ── */
+.vaaa-preview-wrap { margin-top: 1rem; }
+
+/* ── Advanced ── */
+.vaaa-advanced-wrap { margin-top: 1rem; }
+.vaaa-advanced-wrap h2 { margin-top: 1.5em; }
+
+/* ── Sync results table ── */
+#vaaa-sync-results table {
+  border-collapse: collapse; width: 100%; margin-top: 0.5rem;
+  font-size: 13px;
+}
+#vaaa-sync-results th,
+#vaaa-sync-results td {
+  text-align: left; padding: 6px 10px; border-bottom: 1px solid #f0f0f1;
+}
+#vaaa-sync-results th { background: #f6f7f7; font-weight: 600; }
+#vaaa-sync-results .vaaa-sync-missing { color: #a00; font-weight: 600; }
+#vaaa-sync-results .vaaa-sync-ok { color: #007017; }

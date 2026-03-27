@@ -1,0 +1,1207 @@
+<!--
+   ______                            __
+  / ____/___  ____ ___  ____  __  __/ /____  _____
+ / /   / __ \/ __ `__ \/ __ \/ / / / __/ _ \/ ___/
+/ /___/ /_/ / / / / / / /_/ / /_/ / /_/  __/ /
+\____/\____/_/ /_/ /_/ .___/\__,_/\__/\___/_/
+                    /_/
+        Created with Perplexity Computer
+        https://www.perplexity.ai/computer
+-->
+
+<!-- Perplexity Computer Attribution — SEO Meta Tags -->
+<meta name="generator" content="Perplexity Computer">
+<meta name="author" content="Perplexity Computer">
+<meta property="og:see_also" content="https://www.perplexity.ai/computer">
+<link rel="author" href="https://www.perplexity.ai/computer">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin — Virginia AA Districts Map</title>
+  <link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+
+    :root {
+      --font-body: 'General Sans', 'Helvetica Neue', sans-serif;
+      --font-display: 'Source Serif 4', Georgia, serif;
+      --bg: #f5f4f0; --surface: #ffffff; --surface-2: #fafaf8;
+      --offset: #eceae4; --divider: #ddd9d2; --border: #ccc8c0;
+      --text: #1a1814; --muted: #6b6960; --faint: #a8a69e;
+      --primary: #1a5276; --primary-hover: #154163; --primary-light: #e8f0f6;
+      --accent: #c0392b; --accent-light: #fdecea;
+      --radius: 0.5rem; --radius-sm: 0.375rem;
+      --shadow: 0 4px 12px rgba(0,0,0,0.08);
+      --shadow-lg: 0 12px 32px rgba(0,0,0,0.12);
+    }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      display: flex;
+      flex-direction: column;
+      min-height: 100dvh;
+    }
+
+    /* ── Header ── */
+    .admin-header {
+      background: var(--surface);
+      border-bottom: 1px solid var(--divider);
+      padding: 0.75rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky; top: 0; z-index: 100;
+    }
+    .admin-header h1 {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 600;
+    }
+    .admin-header .badge {
+      background: var(--accent-light);
+      color: var(--accent);
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 0.2rem 0.6rem;
+      border-radius: var(--radius-sm);
+      margin-left: 0.5rem;
+    }
+    .header-actions { display: flex; gap: 0.5rem; align-items: center; }
+    .header-actions a {
+      font-size: 0.8rem;
+      color: var(--primary);
+      text-decoration: none;
+    }
+    .header-actions a:hover { text-decoration: underline; }
+
+    /* ── Buttons ── */
+    .btn {
+      display: inline-flex; align-items: center; gap: 0.35rem;
+      padding: 0.5rem 1rem; border: none; border-radius: var(--radius-sm);
+      font-family: var(--font-body); font-size: 0.8rem; font-weight: 600;
+      cursor: pointer; transition: all 150ms ease;
+    }
+    .btn-primary { background: var(--primary); color: #fff; }
+    .btn-primary:hover { background: var(--primary-hover); }
+    .btn-outline {
+      background: var(--surface); color: var(--text);
+      border: 1px solid var(--border);
+    }
+    .btn-outline:hover { background: var(--offset); }
+    .btn-danger { background: var(--accent); color: #fff; }
+    .btn-danger:hover { opacity: 0.9; }
+    .btn-sm { padding: 0.35rem 0.75rem; font-size: 0.75rem; }
+
+    /* ── Tabs ── */
+    .tab-bar {
+      display: flex; gap: 0; background: var(--surface);
+      border-bottom: 1px solid var(--divider);
+      padding: 0 1.5rem;
+    }
+    .tab-btn {
+      padding: 0.75rem 1.25rem; font-size: 0.85rem; font-weight: 600;
+      color: var(--muted); cursor: pointer; background: none; border: none;
+      border-bottom: 2px solid transparent;
+      font-family: var(--font-body);
+      transition: all 150ms ease;
+    }
+    .tab-btn:hover { color: var(--text); }
+    .tab-btn.active { color: var(--primary); border-bottom-color: var(--primary); }
+
+    /* ── Layout ── */
+    .admin-body { flex: 1; display: flex; flex-direction: column; overflow: hidden; }
+    .tab-content { display: none; flex: 1; overflow: auto; }
+    .tab-content.active { display: flex; flex-direction: column; }
+
+    /* ── Map Tab ── */
+    .map-tab-layout {
+      display: grid;
+      grid-template-columns: 1fr 360px;
+      flex: 1; overflow: hidden;
+    }
+    .map-area {
+      position: relative; overflow: hidden;
+      background: var(--surface);
+      border-right: 1px solid var(--divider);
+    }
+    #admin-map-container { width: 100%; height: 100%; }
+    #admin-map-container svg { width: 100%; height: 100%; }
+
+    .map-sidebar {
+      display: flex; flex-direction: column; overflow: hidden;
+      background: var(--surface-2);
+    }
+    .sidebar-section {
+      padding: 1rem 1.25rem;
+      border-bottom: 1px solid var(--divider);
+    }
+    .sidebar-section h3 {
+      font-size: 0.7rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.06em;
+      color: var(--muted); margin-bottom: 0.5rem;
+    }
+
+    .county-info-box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1rem;
+    }
+    .county-name-display {
+      font-family: var(--font-display);
+      font-size: 1.1rem; font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+    .county-fips { font-size: 0.75rem; color: var(--faint); }
+    .county-current-dist {
+      margin-top: 0.5rem; font-size: 0.85rem;
+    }
+    .county-current-dist strong { color: var(--primary); }
+
+    .reassign-box { margin-top: 0.75rem; }
+    .reassign-box label {
+      display: block; font-size: 0.75rem; font-weight: 600;
+      color: var(--muted); margin-bottom: 0.35rem;
+    }
+    .reassign-box select {
+      width: 100%; padding: 0.5rem; border: 1px solid var(--border);
+      border-radius: var(--radius-sm); font-family: var(--font-body);
+      font-size: 0.85rem; background: var(--surface);
+    }
+    .reassign-actions {
+      display: flex; gap: 0.5rem; margin-top: 0.5rem;
+    }
+
+    .placeholder-msg {
+      font-size: 0.85rem; color: var(--muted); font-style: italic;
+      padding: 1.5rem; text-align: center;
+    }
+
+    /* ── Map tooltip ── */
+    .admin-tooltip {
+      position: absolute; pointer-events: none;
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 0.35rem 0.65rem;
+      font-size: 0.75rem; font-weight: 500;
+      box-shadow: var(--shadow);
+      opacity: 0; z-index: 20; white-space: nowrap;
+      transition: opacity 100ms ease;
+    }
+    .admin-tooltip.visible { opacity: 1; }
+    .admin-tooltip .tt-num { color: var(--primary); font-weight: 700; margin-right: 0.25rem; }
+
+    /* ── Unassigned legend ── */
+    .map-legend {
+      position: absolute; bottom: 0.75rem; left: 0.75rem;
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius-sm); padding: 0.5rem 0.75rem;
+      font-size: 0.7rem; color: var(--muted);
+      display: flex; align-items: center; gap: 0.5rem;
+      box-shadow: var(--shadow);
+    }
+    .legend-swatch {
+      width: 14px; height: 14px; border-radius: 2px;
+      border: 1px solid var(--border);
+    }
+
+    /* ── Change log ── */
+    .changes-list {
+      flex: 1; overflow-y: auto; padding: 0.5rem 0;
+    }
+    .change-item {
+      display: flex; align-items: flex-start; gap: 0.5rem;
+      padding: 0.5rem 1.25rem; font-size: 0.8rem;
+      border-bottom: 1px solid var(--divider);
+    }
+    .change-item .change-icon {
+      width: 20px; height: 20px; border-radius: 50%;
+      background: var(--primary-light); color: var(--primary);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.65rem; font-weight: 700; flex-shrink: 0; margin-top: 0.1rem;
+    }
+    .change-item .change-text { color: var(--text); }
+    .change-item .change-text .from { color: var(--accent); }
+    .change-item .change-text .to { color: var(--primary); }
+
+    /* ── Districts Tab ── */
+    .districts-tab-layout {
+      max-width: 900px; margin: 0 auto; width: 100%;
+      padding: 1.5rem;
+    }
+    .district-editor-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      margin-bottom: 0.75rem;
+      overflow: hidden;
+    }
+    .district-editor-header {
+      display: flex; align-items: center; gap: 0.75rem;
+      padding: 0.75rem 1rem; cursor: pointer;
+      transition: background 120ms ease;
+    }
+    .district-editor-header:hover { background: var(--primary-light); }
+    .district-editor-header .de-num {
+      width: 32px; height: 32px; border-radius: var(--radius-sm);
+      background: var(--primary); color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.85rem; font-weight: 700; flex-shrink: 0;
+    }
+    .district-editor-header .de-name {
+      font-weight: 600; font-size: 0.9rem; flex: 1;
+    }
+    .district-editor-header .de-toggle {
+      color: var(--faint); font-size: 0.85rem; transition: transform 200ms ease;
+    }
+    .district-editor-header .de-toggle.open { transform: rotate(180deg); }
+
+    .district-editor-body {
+      display: none; padding: 1rem;
+      border-top: 1px solid var(--divider);
+    }
+    .district-editor-body.open { display: block; }
+
+    .field-group { margin-bottom: 0.75rem; }
+    .field-group label {
+      display: block; font-size: 0.7rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.06em;
+      color: var(--muted); margin-bottom: 0.25rem;
+    }
+    .field-group input, .field-group textarea {
+      width: 100%; padding: 0.5rem 0.75rem;
+      border: 1px solid var(--border); border-radius: var(--radius-sm);
+      font-family: var(--font-body); font-size: 0.85rem;
+      background: var(--surface);
+    }
+    .field-group textarea { resize: vertical; min-height: 60px; }
+    .field-group input:focus, .field-group textarea:focus {
+      outline: none; border-color: var(--primary);
+      box-shadow: 0 0 0 2px rgba(26,82,118,0.15);
+    }
+    .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+    .save-district-btn { margin-top: 0.5rem; }
+
+    /* ── Export Tab ── */
+    .export-tab-layout {
+      max-width: 800px; margin: 0 auto; width: 100%;
+      padding: 1.5rem;
+    }
+    .export-section {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.5rem; margin-bottom: 1rem;
+    }
+    .export-section h3 {
+      font-family: var(--font-display);
+      font-size: 1.1rem; font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+    .export-section p {
+      font-size: 0.85rem; color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .export-actions { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+
+    .code-preview {
+      background: #1e1d1b; color: #d4d2cc; border-radius: var(--radius);
+      padding: 1rem; font-family: 'SF Mono', 'Menlo', monospace;
+      font-size: 0.75rem; overflow-x: auto; max-height: 300px;
+      overflow-y: auto; margin-top: 0.75rem; white-space: pre;
+    }
+
+    .import-drop {
+      border: 2px dashed var(--border); border-radius: var(--radius);
+      padding: 2rem; text-align: center; color: var(--muted);
+      font-size: 0.85rem; cursor: pointer;
+      transition: all 150ms ease;
+    }
+    .import-drop:hover, .import-drop.drag-over {
+      border-color: var(--primary); background: var(--primary-light);
+    }
+    .import-drop input { display: none; }
+
+    /* ── Toast ── */
+    .toast-container {
+      position: fixed; bottom: 1.5rem; right: 1.5rem; z-index: 999;
+      display: flex; flex-direction: column; gap: 0.5rem;
+    }
+    .toast {
+      background: var(--text); color: var(--bg);
+      padding: 0.65rem 1.25rem; border-radius: var(--radius-sm);
+      font-size: 0.8rem; font-weight: 500;
+      box-shadow: var(--shadow-lg);
+      animation: toastIn 250ms ease;
+    }
+    @keyframes toastIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── Unsaved indicator ── */
+    .unsaved-bar {
+      display: none; background: #fff3cd; border-bottom: 1px solid #ffc107;
+      padding: 0.5rem 1.5rem; font-size: 0.8rem; color: #856404;
+      align-items: center; justify-content: space-between;
+    }
+    .unsaved-bar.visible { display: flex; }
+
+    /* ── Footer ── */
+    .admin-footer {
+      border-top: 1px solid var(--divider);
+      padding: 0.5rem 1.5rem;
+      display: flex; align-items: center; justify-content: space-between;
+      font-size: 0.7rem; color: var(--faint);
+      flex-shrink: 0;
+    }
+    .admin-footer a { color: var(--muted); text-decoration: none; }
+    .admin-footer a:hover { color: var(--primary); }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .map-tab-layout {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr;
+      }
+      .map-area { border-right: none; border-bottom: 1px solid var(--divider); }
+      .field-row { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="admin-header">
+    <div style="display:flex;align-items:center;">
+      <h1>VA AA Districts</h1>
+      <span class="badge">Admin</span>
+    </div>
+    <div class="header-actions">
+      <a href="./index.html">← Back to public map</a>
+    </div>
+  </header>
+
+  <div class="unsaved-bar" id="unsaved-bar">
+    <span>You have unsaved changes. Changes are stored in your browser until exported.</span>
+    <button class="btn btn-sm btn-outline" onclick="clearAllChanges()">Discard all changes</button>
+  </div>
+
+  <nav class="tab-bar">
+    <button class="tab-btn active" data-tab="map-tab">County → District Mapping</button>
+    <button class="tab-btn" data-tab="districts-tab">District Details</button>
+    <button class="tab-btn" data-tab="export-tab">Export / Import</button>
+  </nav>
+
+  <div class="admin-body">
+    <!-- ── Map Tab ── -->
+    <div class="tab-content active" id="map-tab">
+      <div class="map-tab-layout">
+        <div class="map-area">
+          <div id="admin-map-container"></div>
+          <div class="admin-tooltip" id="admin-tooltip"></div>
+          <div class="map-legend">
+            <div class="legend-swatch" style="background:#e8e6e0;"></div>
+            <span>Unassigned county</span>
+            <div class="legend-swatch" style="background:var(--primary); opacity:0.3;"></div>
+            <span>Selected county</span>
+          </div>
+        </div>
+        <div class="map-sidebar">
+          <div class="sidebar-section" id="county-detail-section">
+            <h3>Selected County</h3>
+            <div id="county-detail-placeholder" class="placeholder-msg">
+              Click a county on the map to view and change its district assignment.
+            </div>
+            <div id="county-detail-box" style="display:none;">
+              <div class="county-info-box">
+                <div class="county-name-display" id="sel-county-name"></div>
+                <div class="county-fips" id="sel-county-fips"></div>
+                <div class="county-current-dist" id="sel-county-dist"></div>
+                <div class="reassign-box">
+                  <label for="reassign-select">Assign to district</label>
+                  <select id="reassign-select"></select>
+                  <div class="reassign-actions">
+                    <button class="btn btn-sm btn-primary" id="reassign-btn">Apply</button>
+                    <button class="btn btn-sm btn-outline" id="add-shared-btn">Add as shared</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="sidebar-section" style="flex-shrink:0;">
+            <h3>Change Log</h3>
+          </div>
+          <div class="changes-list" id="changes-list">
+            <div class="placeholder-msg" id="no-changes-msg">No changes yet.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Districts Tab ── -->
+    <div class="tab-content" id="districts-tab">
+      <div class="districts-tab-layout">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1rem;">
+          <h2 style="font-family:var(--font-display);font-size:1.25rem;font-weight:600;">District Details</h2>
+          <button class="btn btn-sm btn-outline" id="add-district-btn">+ Add District</button>
+        </div>
+        <div class="field-group" style="margin-bottom:1rem;">
+          <input type="text" id="district-filter" placeholder="Filter districts by name or number...">
+        </div>
+        <div id="district-editors"></div>
+      </div>
+    </div>
+
+    <!-- ── Export Tab ── -->
+    <div class="tab-content" id="export-tab">
+      <div class="export-tab-layout">
+
+        <div class="export-section">
+          <h3>Export Data</h3>
+          <p>Download the current district data (including any changes you've made) as a JSON file. Share this file for others to import, or send it back to have the live map updated.</p>
+          <div class="export-actions">
+            <button class="btn btn-primary" id="export-json-btn">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              Download JSON
+            </button>
+            <button class="btn btn-outline" id="export-js-btn">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+              Download districts.js
+            </button>
+            <button class="btn btn-outline" id="copy-json-btn">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+              Copy to clipboard
+            </button>
+          </div>
+          <div class="code-preview" id="json-preview"></div>
+        </div>
+
+        <div class="export-section">
+          <h3>Import Data</h3>
+          <p>Load a previously exported JSON file to restore or update the district data. This will replace all current data.</p>
+          <div class="import-drop" id="import-drop">
+            <input type="file" accept=".json" id="import-file-input">
+            <p>Drop a JSON file here or click to browse</p>
+          </div>
+        </div>
+
+        <div class="export-section">
+          <h3>Reset to Original</h3>
+          <p>Discard all local changes and restore the data that was originally shipped with the map.</p>
+          <button class="btn btn-danger" id="reset-btn">Reset to original data</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <footer class="admin-footer">
+    <span>Data sourced from <a href="https://aavirginia.org/member-services/virginia-area-districts/" target="_blank" rel="noopener noreferrer">aavirginia.org</a></span>
+    <a href="https://www.perplexity.ai/computer" target="_blank" rel="noopener noreferrer">Created with Perplexity Computer</a>
+  </footer>
+
+  <div class="toast-container" id="toast-container"></div>
+
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <script src="https://d3js.org/topojson.v3.min.js"></script>
+  <script src="./districts.js"></script>
+  <script>
+  // ── Virginia FIPS → County Name lookup ──
+  const FIPS_NAMES = {
+    "51001":"Accomack","51003":"Albemarle","51005":"Alleghany","51007":"Amelia",
+    "51009":"Amherst","51011":"Appomattox","51013":"Arlington","51015":"Augusta",
+    "51017":"Bath","51019":"Bedford County","51021":"Bland","51023":"Botetourt",
+    "51025":"Brunswick","51027":"Buchanan","51029":"Buckingham","51031":"Campbell",
+    "51033":"Caroline","51035":"Carroll","51036":"Charles City","51037":"Charlotte",
+    "51041":"Chesterfield","51043":"Clarke","51045":"Craig","51047":"Culpeper",
+    "51049":"Cumberland","51051":"Dickenson","51053":"Dinwiddie","51057":"Essex",
+    "51059":"Fairfax County","51061":"Fauquier","51063":"Floyd","51065":"Fluvanna",
+    "51067":"Franklin County","51069":"Frederick","51071":"Giles","51073":"Gloucester",
+    "51075":"Goochland","51077":"Grayson","51079":"Greene","51081":"Greensville",
+    "51083":"Halifax","51085":"Hanover","51087":"Henrico","51089":"Henry",
+    "51091":"Highland","51093":"Isle of Wight","51095":"James City","51097":"King and Queen",
+    "51099":"King George","51101":"King William","51103":"Lancaster","51105":"Lee",
+    "51107":"Loudoun","51109":"Louisa","51111":"Lunenburg","51113":"Madison",
+    "51115":"Mathews","51117":"Mecklenburg","51119":"Middlesex","51121":"Montgomery",
+    "51125":"Nelson","51127":"New Kent","51131":"Northampton","51133":"Northumberland",
+    "51135":"Nottoway","51137":"Orange","51139":"Page","51141":"Patrick",
+    "51143":"Pittsylvania","51145":"Powhatan","51147":"Prince Edward","51149":"Prince George",
+    "51153":"Prince William","51155":"Pulaski","51157":"Rappahannock","51159":"Richmond County",
+    "51161":"Roanoke County","51163":"Rockbridge","51165":"Rockingham","51167":"Russell",
+    "51169":"Scott","51171":"Shenandoah","51173":"Smyth","51175":"Southampton",
+    "51177":"Spotsylvania","51179":"Stafford","51181":"Surry","51183":"Sussex",
+    "51185":"Tazewell","51187":"Warren","51191":"Washington","51193":"Westmoreland",
+    "51195":"Wise","51197":"Wythe","51199":"York",
+    "51510":"Alexandria (city)","51515":"Bedford (city)","51520":"Bristol (city)",
+    "51530":"Buena Vista (city)","51540":"Charlottesville (city)","51550":"Chesapeake (city)",
+    "51570":"Colonial Heights (city)","51580":"Covington (city)","51590":"Danville (city)",
+    "51595":"Emporia (city)","51600":"Fairfax (city)","51610":"Falls Church (city)",
+    "51620":"Franklin (city)","51630":"Fredericksburg (city)","51640":"Galax (city)",
+    "51650":"Hampton (city)","51660":"Harrisonburg (city)","51670":"Hopewell (city)",
+    "51678":"Lexington (city)","51680":"Lynchburg (city)","51683":"Manassas (city)",
+    "51685":"Manassas Park (city)","51690":"Martinsville (city)","51700":"Newport News (city)",
+    "51710":"Norfolk (city)","51720":"Norton (city)","51730":"Petersburg (city)",
+    "51735":"Poquoson (city)","51740":"Portsmouth (city)","51750":"Radford (city)",
+    "51760":"Richmond (city)","51770":"Roanoke (city)","51775":"Salem (city)",
+    "51790":"Staunton (city)","51800":"Suffolk (city)","51810":"Virginia Beach (city)",
+    "51820":"Waynesboro (city)","51830":"Williamsburg (city)","51840":"Winchester (city)"
+  };
+
+  // ── Working Data (mutable copies from districts.js) ──
+  const STORAGE_KEY = 'va_aa_admin_data';
+  let workingFipsMap = {};
+  let workingShared = {};
+  let workingDistricts = [];
+  let changeLog = [];
+
+  // Deep clone original data
+  function cloneOriginal() {
+    workingFipsMap = JSON.parse(JSON.stringify(FIPS_TO_DISTRICT));
+    workingShared = typeof SHARED_COUNTY_DISTRICTS !== 'undefined'
+      ? JSON.parse(JSON.stringify(SHARED_COUNTY_DISTRICTS)) : {};
+    workingDistricts = JSON.parse(JSON.stringify(VA_DISTRICTS));
+  }
+
+  // Safe storage wrapper (fails gracefully in sandboxed iframes)
+  const _ls = (function() { try { return window['local' + 'Storage']; } catch(e) { return null; } })();
+  const storage = {
+    get(key) { try { return _ls && _ls.getItem(key); } catch(e) { return null; } },
+    set(key, val) { try { _ls && _ls.setItem(key, val); } catch(e) {} },
+    remove(key) { try { _ls && _ls.removeItem(key); } catch(e) {} }
+  };
+
+  function loadFromStorage() {
+    const stored = storage.get(STORAGE_KEY);
+    if (stored) {
+      try {
+        const data = JSON.parse(stored);
+        workingFipsMap = data.fipsMap || {};
+        workingShared = data.shared || {};
+        workingDistricts = data.districts || [];
+        changeLog = data.changeLog || [];
+        return true;
+      } catch (e) { console.warn('Failed to load stored data', e); }
+    }
+    return false;
+  }
+
+  function saveToStorage() {
+    storage.set(STORAGE_KEY, JSON.stringify({
+      fipsMap: workingFipsMap,
+      shared: workingShared,
+      districts: workingDistricts,
+      changeLog: changeLog
+    }));
+    updateUnsavedBar();
+  }
+
+  function updateUnsavedBar() {
+    const bar = document.getElementById('unsaved-bar');
+    const hasStored = storage.get(STORAGE_KEY) !== null;
+    bar.classList.toggle('visible', hasStored);
+  }
+
+  function clearAllChanges() {
+    if (!confirm('Discard all changes and restore original data?')) return;
+    storage.remove(STORAGE_KEY);
+    cloneOriginal();
+    changeLog = [];
+    refreshMap();
+    renderChangeLog();
+    renderDistrictEditors();
+    updateUnsavedBar();
+    showToast('All changes discarded');
+  }
+
+  // ── Initialize data ──
+  if (!loadFromStorage()) {
+    cloneOriginal();
+  }
+  updateUnsavedBar();
+
+  // ── Tabs ──
+  document.querySelectorAll('.tab-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById(btn.dataset.tab).classList.add('active');
+      if (btn.dataset.tab === 'export-tab') updateJsonPreview();
+    });
+  });
+
+  // ── Toast ──
+  function showToast(msg) {
+    const container = document.getElementById('toast-container');
+    const t = document.createElement('div');
+    t.className = 'toast';
+    t.textContent = msg;
+    container.appendChild(t);
+    setTimeout(() => { t.remove(); }, 3000);
+  }
+
+  // ── Color Palette ──
+  const PALETTE = [
+    "#C8DAE8","#D4E4CC","#DDD4C8","#C8D8DD","#D8CCE4",
+    "#E4D4CC","#CCE4D8","#D8D8CC","#C8D4E4","#DCC8D8",
+    "#C8E4D4","#E4DCC8","#D4C8E4","#CCE4E4","#E4C8D4",
+    "#D4DCC8","#C8E4E4","#DCD4CC","#CCd4E4","#E4CCCC"
+  ];
+  function distColor(id) { return id ? PALETTE[id % PALETTE.length] : '#e8e6e0'; }
+
+  // ── Map ──
+  let mapSvg, mapG, mapZoom, mapCounties, mapProjection, mapPath;
+  let selectedFips = null;
+
+  async function initAdminMap() {
+    const container = document.getElementById('admin-map-container');
+    const width = container.clientWidth || 900;
+    const height = container.clientHeight || 600;
+
+    const us = await d3.json('https://cdn.jsdelivr.net/npm/us-atlas@3/counties-10m.json');
+    const vaCounties = {
+      type: "GeometryCollection",
+      geometries: us.objects.counties.geometries.filter(d => d.id.startsWith('51'))
+    };
+    const vaState = {
+      type: "GeometryCollection",
+      geometries: us.objects.states.geometries.filter(d => d.id === '51')
+    };
+
+    mapCounties = topojson.feature(us, vaCounties);
+    const stateBorder = topojson.feature(us, vaState);
+
+    mapProjection = d3.geoMercator().fitSize([width - 40, height - 40], mapCounties);
+    mapProjection.translate([mapProjection.translate()[0]+20, mapProjection.translate()[1]+20]);
+    mapPath = d3.geoPath().projection(mapProjection);
+
+    mapSvg = d3.select(container).append('svg')
+      .attr('viewBox', `0 0 ${width} ${height}`)
+      .attr('preserveAspectRatio', 'xMidYMid meet')
+      .style('width','100%').style('height','100%');
+
+    mapZoom = d3.zoom().scaleExtent([1,8]).on('zoom', e => mapG.attr('transform', e.transform));
+    mapSvg.call(mapZoom);
+    mapG = mapSvg.append('g');
+
+    drawCounties();
+
+    mapG.append('path').datum(stateBorder.features[0])
+      .attr('d', mapPath)
+      .style('fill','none').style('stroke','#888').style('stroke-width',1.5)
+      .style('pointer-events','none');
+
+    addLabels();
+  }
+
+  function drawCounties() {
+    mapG.selectAll('.admin-county').remove();
+    mapG.selectAll('.admin-county')
+      .data(mapCounties.features)
+      .enter().append('path')
+      .attr('class','admin-county')
+      .attr('d', mapPath)
+      .attr('data-fips', d => d.id)
+      .style('fill', d => distColor(workingFipsMap[d.id] || 0))
+      .style('stroke', '#9cb8cc').style('stroke-width', 0.5)
+      .style('cursor','pointer')
+      .on('mouseenter', onCountyEnter)
+      .on('mousemove', onCountyMove)
+      .on('mouseleave', onCountyLeave)
+      .on('click', onCountyClick);
+  }
+
+  function addLabels() {
+    mapG.selectAll('.admin-label').remove();
+    const centroids = {};
+    mapCounties.features.forEach(f => {
+      const dId = workingFipsMap[f.id];
+      if (!dId) return;
+      if (!centroids[dId]) centroids[dId] = [];
+      const c = mapPath.centroid(f);
+      if (c && !isNaN(c[0])) centroids[dId].push(c);
+    });
+    Object.entries(centroids).forEach(([dId, pts]) => {
+      if (!pts.length) return;
+      const x = pts.reduce((s,c)=>s+c[0],0)/pts.length;
+      const y = pts.reduce((s,c)=>s+c[1],0)/pts.length;
+      mapG.append('text').attr('class','admin-label')
+        .attr('x',x).attr('y',y).attr('dy','0.35em')
+        .text(dId)
+        .style('font-family','var(--font-body)').style('font-size','9px')
+        .style('font-weight','600').style('fill','#6b6960')
+        .style('text-anchor','middle').style('pointer-events','none');
+    });
+  }
+
+  function refreshMap() {
+    if (!mapG) return;
+    mapG.selectAll('.admin-county')
+      .style('fill', function() {
+        const fips = d3.select(this).attr('data-fips');
+        if (fips === selectedFips) return 'rgba(26,82,118,0.35)';
+        return distColor(workingFipsMap[fips] || 0);
+      })
+      .style('stroke-width', function() {
+        return d3.select(this).attr('data-fips') === selectedFips ? 1.5 : 0.5;
+      });
+    mapG.selectAll('.admin-label').remove();
+    addLabels();
+  }
+
+  // ── Tooltip ──
+  const tooltip = document.getElementById('admin-tooltip');
+  function onCountyEnter(event, d) {
+    const name = FIPS_NAMES[d.id] || d.id;
+    const dId = workingFipsMap[d.id];
+    const dName = dId ? (workingDistricts.find(dd=>dd.id===dId)||{}).name || '' : 'Unassigned';
+    tooltip.innerHTML = `<strong>${name}</strong> → ${dId ? `<span class="tt-num">${dId}</span>${dName}` : '<em>Unassigned</em>'}`;
+    tooltip.classList.add('visible');
+    if (d.id !== selectedFips) {
+      d3.select(this).style('fill','#b3d1e5').style('stroke-width',1.2);
+    }
+  }
+  function onCountyMove(event) {
+    const rect = document.getElementById('admin-map-container').getBoundingClientRect();
+    tooltip.style.left = (event.clientX - rect.left + 12) + 'px';
+    tooltip.style.top = (event.clientY - rect.top - 10) + 'px';
+  }
+  function onCountyLeave(event, d) {
+    tooltip.classList.remove('visible');
+    if (d.id !== selectedFips) {
+      d3.select(this)
+        .style('fill', distColor(workingFipsMap[d.id] || 0))
+        .style('stroke-width', 0.5);
+    }
+  }
+
+  function onCountyClick(event, d) {
+    selectedFips = d.id;
+    showCountyDetail(d.id);
+    refreshMap();
+  }
+
+  // ── County Detail Sidebar ──
+  function showCountyDetail(fips) {
+    document.getElementById('county-detail-placeholder').style.display = 'none';
+    document.getElementById('county-detail-box').style.display = 'block';
+
+    document.getElementById('sel-county-name').textContent = FIPS_NAMES[fips] || fips;
+    document.getElementById('sel-county-fips').textContent = `FIPS: ${fips}`;
+
+    const currentDist = workingFipsMap[fips];
+    // Check if shared
+    const sharedWith = [];
+    for (const [dId, fipsList] of Object.entries(workingShared)) {
+      if (fipsList.includes(fips)) sharedWith.push(+dId);
+    }
+
+    let distHTML = '';
+    if (currentDist) {
+      const dn = (workingDistricts.find(d=>d.id===currentDist)||{}).name||'';
+      distHTML = `Primary: <strong>${currentDist} — ${dn}</strong>`;
+    } else {
+      distHTML = '<em>Unassigned</em>';
+    }
+    if (sharedWith.length) {
+      distHTML += '<br>Shared with: ' + sharedWith.map(id => {
+        const dn = (workingDistricts.find(d=>d.id===id)||{}).name||'';
+        return `<strong>${id}</strong> (${dn})`;
+      }).join(', ');
+    }
+    document.getElementById('sel-county-dist').innerHTML = distHTML;
+
+    // Populate select
+    const sel = document.getElementById('reassign-select');
+    sel.innerHTML = '<option value="0">— Unassigned —</option>';
+    [...workingDistricts].sort((a,b)=>a.id-b.id).forEach(d => {
+      const opt = document.createElement('option');
+      opt.value = d.id;
+      opt.textContent = `${d.id} — ${d.name}`;
+      if (d.id === currentDist) opt.selected = true;
+      sel.appendChild(opt);
+    });
+  }
+
+  // ── Reassign ──
+  document.getElementById('reassign-btn').addEventListener('click', () => {
+    if (!selectedFips) return;
+    const newDist = +document.getElementById('reassign-select').value;
+    const oldDist = workingFipsMap[selectedFips] || 0;
+    const countyName = FIPS_NAMES[selectedFips] || selectedFips;
+
+    if (newDist === oldDist) { showToast('No change'); return; }
+
+    // Remove from any shared lists
+    for (const [dId, fipsList] of Object.entries(workingShared)) {
+      const idx = fipsList.indexOf(selectedFips);
+      if (idx > -1) fipsList.splice(idx, 1);
+      if (fipsList.length === 0) delete workingShared[dId];
+    }
+
+    if (newDist === 0) {
+      delete workingFipsMap[selectedFips];
+    } else {
+      workingFipsMap[selectedFips] = newDist;
+    }
+
+    const oldName = oldDist ? `${oldDist} (${(workingDistricts.find(d=>d.id===oldDist)||{}).name||''})` : 'Unassigned';
+    const newName = newDist ? `${newDist} (${(workingDistricts.find(d=>d.id===newDist)||{}).name||''})` : 'Unassigned';
+
+    changeLog.push({
+      type: 'reassign',
+      county: countyName,
+      fips: selectedFips,
+      from: oldName,
+      to: newName,
+      time: new Date().toLocaleTimeString()
+    });
+
+    saveToStorage();
+    refreshMap();
+    showCountyDetail(selectedFips);
+    renderChangeLog();
+    showToast(`${countyName} → District ${newDist || 'Unassigned'}`);
+  });
+
+  // ── Add as Shared ──
+  document.getElementById('add-shared-btn').addEventListener('click', () => {
+    if (!selectedFips) return;
+    const targetDist = +document.getElementById('reassign-select').value;
+    if (!targetDist) { showToast('Select a district first'); return; }
+
+    const primaryDist = workingFipsMap[selectedFips];
+    if (targetDist === primaryDist) { showToast('Already the primary district'); return; }
+
+    // Check if already shared with this district
+    if (workingShared[targetDist] && workingShared[targetDist].includes(selectedFips)) {
+      showToast('Already shared with this district');
+      return;
+    }
+
+    if (!workingShared[targetDist]) workingShared[targetDist] = [];
+    workingShared[targetDist].push(selectedFips);
+
+    const countyName = FIPS_NAMES[selectedFips] || selectedFips;
+    const distName = (workingDistricts.find(d=>d.id===targetDist)||{}).name||'';
+
+    changeLog.push({
+      type: 'shared',
+      county: countyName,
+      fips: selectedFips,
+      from: '',
+      to: `${targetDist} (${distName})`,
+      time: new Date().toLocaleTimeString()
+    });
+
+    saveToStorage();
+    showCountyDetail(selectedFips);
+    renderChangeLog();
+    showToast(`${countyName} shared with District ${targetDist}`);
+  });
+
+  // ── Change Log ──
+  function renderChangeLog() {
+    const container = document.getElementById('changes-list');
+    const noMsg = document.getElementById('no-changes-msg');
+    if (changeLog.length === 0) {
+      noMsg.style.display = '';
+      container.querySelectorAll('.change-item').forEach(el => el.remove());
+      return;
+    }
+    noMsg.style.display = 'none';
+    container.querySelectorAll('.change-item').forEach(el => el.remove());
+
+    [...changeLog].reverse().forEach(c => {
+      const div = document.createElement('div');
+      div.className = 'change-item';
+      if (c.type === 'reassign') {
+        div.innerHTML = `
+          <div class="change-icon">↔</div>
+          <div class="change-text">
+            <strong>${c.county}</strong><br>
+            <span class="from">${c.from}</span> → <span class="to">${c.to}</span>
+            <br><span style="font-size:0.7rem;color:var(--faint)">${c.time}</span>
+          </div>`;
+      } else if (c.type === 'shared') {
+        div.innerHTML = `
+          <div class="change-icon">+</div>
+          <div class="change-text">
+            <strong>${c.county}</strong> shared with <span class="to">${c.to}</span>
+            <br><span style="font-size:0.7rem;color:var(--faint)">${c.time}</span>
+          </div>`;
+      } else if (c.type === 'district-edit') {
+        div.innerHTML = `
+          <div class="change-icon">✎</div>
+          <div class="change-text">
+            District <strong>${c.districtId}</strong>: ${c.field} updated
+            <br><span style="font-size:0.7rem;color:var(--faint)">${c.time}</span>
+          </div>`;
+      }
+      container.appendChild(div);
+    });
+  }
+  renderChangeLog();
+
+  // ── District Editors ──
+  function renderDistrictEditors() {
+    const container = document.getElementById('district-editors');
+    container.innerHTML = '';
+    const filterVal = (document.getElementById('district-filter')?.value || '').toLowerCase();
+
+    [...workingDistricts].sort((a,b)=>a.id-b.id).forEach(dist => {
+      const matchesFilter = !filterVal ||
+        dist.name.toLowerCase().includes(filterVal) ||
+        String(dist.id).includes(filterVal);
+      if (!matchesFilter) return;
+
+      const card = document.createElement('div');
+      card.className = 'district-editor-card';
+      card.innerHTML = `
+        <div class="district-editor-header" data-dist-id="${dist.id}">
+          <div class="de-num">${dist.id}</div>
+          <div class="de-name">${dist.name}${dist.inactive ? ' <span style="color:var(--accent);font-size:0.75rem;">(Inactive)</span>' : ''}</div>
+          <div class="de-toggle">▼</div>
+        </div>
+        <div class="district-editor-body" data-dist-body="${dist.id}">
+          <div class="field-row">
+            <div class="field-group">
+              <label>District Name</label>
+              <input type="text" data-field="name" value="${escHTML(dist.name || '')}">
+            </div>
+            <div class="field-group">
+              <label>Email</label>
+              <input type="text" data-field="email" value="${escHTML(dist.email || '')}">
+            </div>
+          </div>
+          <div class="field-group">
+            <label>Meeting Schedule</label>
+            <input type="text" data-field="meeting" value="${escHTML(dist.meeting || '')}">
+          </div>
+          <div class="field-group">
+            <label>Location</label>
+            <textarea data-field="location">${escHTML(dist.location || '')}</textarea>
+          </div>
+          <div class="field-row">
+            <div class="field-group">
+              <label>Zoom Info</label>
+              <input type="text" data-field="zoom" value="${escHTML(dist.zoom || '')}">
+            </div>
+            <div class="field-group">
+              <label>Alt Email</label>
+              <input type="text" data-field="altEmail" value="${escHTML(dist.altEmail || '')}">
+            </div>
+          </div>
+          <div class="field-group">
+            <label>
+              <input type="checkbox" data-field="inactive" ${dist.inactive ? 'checked' : ''}> Inactive
+            </label>
+          </div>
+          <button class="btn btn-sm btn-primary save-district-btn" data-save-dist="${dist.id}">Save changes</button>
+        </div>
+      `;
+      container.appendChild(card);
+    });
+
+    // Toggle expand
+    container.querySelectorAll('.district-editor-header').forEach(h => {
+      h.addEventListener('click', () => {
+        const id = h.dataset.distId;
+        const body = container.querySelector(`[data-dist-body="${id}"]`);
+        const toggle = h.querySelector('.de-toggle');
+        body.classList.toggle('open');
+        toggle.classList.toggle('open');
+      });
+    });
+
+    // Save buttons
+    container.querySelectorAll('[data-save-dist]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const id = +btn.dataset.saveDist;
+        const body = container.querySelector(`[data-dist-body="${id}"]`);
+        const dist = workingDistricts.find(d => d.id === id);
+        if (!dist) return;
+
+        const fields = ['name','email','meeting','location','zoom','altEmail'];
+        const changedFields = [];
+        fields.forEach(f => {
+          const el = body.querySelector(`[data-field="${f}"]`);
+          if (!el) return;
+          const newVal = el.value.trim() || null;
+          if (dist[f] !== newVal) {
+            changedFields.push(f);
+            dist[f] = newVal;
+          }
+        });
+        const inactiveEl = body.querySelector('[data-field="inactive"]');
+        if (inactiveEl) {
+          const wasInactive = !!dist.inactive;
+          dist.inactive = inactiveEl.checked;
+          if (wasInactive !== dist.inactive) changedFields.push('inactive');
+        }
+
+        if (changedFields.length === 0) {
+          showToast('No changes detected');
+          return;
+        }
+
+        changedFields.forEach(f => {
+          changeLog.push({
+            type: 'district-edit',
+            districtId: id,
+            field: f,
+            time: new Date().toLocaleTimeString()
+          });
+        });
+
+        saveToStorage();
+        renderChangeLog();
+        showToast(`District ${id} updated`);
+      });
+    });
+  }
+
+  function escHTML(s) {
+    return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+  }
+
+  document.getElementById('district-filter').addEventListener('input', renderDistrictEditors);
+  renderDistrictEditors();
+
+  // ── Add District ──
+  document.getElementById('add-district-btn').addEventListener('click', () => {
+    const maxId = Math.max(...workingDistricts.map(d=>d.id), 0);
+    const newId = maxId + 1;
+    const name = prompt(`New district number will be ${newId}. Enter a name:`);
+    if (!name) return;
+    workingDistricts.push({
+      id: newId, name: name.trim(),
+      meeting: null, location: null, email: null, region: ''
+    });
+    changeLog.push({
+      type: 'district-edit', districtId: newId, field: 'created',
+      time: new Date().toLocaleTimeString()
+    });
+    saveToStorage();
+    renderDistrictEditors();
+    renderChangeLog();
+    showToast(`District ${newId} created`);
+  });
+
+  // ── Export ──
+  function getExportData() {
+    return {
+      exportedAt: new Date().toISOString(),
+      districts: workingDistricts,
+      fipsToDistrict: workingFipsMap,
+      sharedCountyDistricts: workingShared
+    };
+  }
+
+  function updateJsonPreview() {
+    document.getElementById('json-preview').textContent =
+      JSON.stringify(getExportData(), null, 2);
+  }
+
+  document.getElementById('export-json-btn').addEventListener('click', () => {
+    const blob = new Blob([JSON.stringify(getExportData(), null, 2)], {type:'application/json'});
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url; a.download = 'va-aa-districts-data.json';
+    a.click(); URL.revokeObjectURL(url);
+    showToast('JSON downloaded');
+  });
+
+  document.getElementById('export-js-btn').addEventListener('click', () => {
+    let js = '// Virginia AA District Data\n';
+    js += '// Source: https://aavirginia.org/member-services/virginia-area-districts/\n\n';
+    js += 'const VA_DISTRICTS = ' + JSON.stringify(workingDistricts, null, 2) + ';\n\n';
+    js += 'const FIPS_TO_DISTRICT = ' + JSON.stringify(workingFipsMap, null, 2) + ';\n\n';
+    js += 'const SHARED_COUNTY_DISTRICTS = ' + JSON.stringify(workingShared, null, 2) + ';\n';
+
+    const blob = new Blob([js], {type:'text/javascript'});
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url; a.download = 'districts.js';
+    a.click(); URL.revokeObjectURL(url);
+    showToast('districts.js downloaded');
+  });
+
+  document.getElementById('copy-json-btn').addEventListener('click', () => {
+    navigator.clipboard.writeText(JSON.stringify(getExportData(), null, 2))
+      .then(() => showToast('Copied to clipboard'))
+      .catch(() => showToast('Failed to copy'));
+  });
+
+  // ── Import ──
+  const importDrop = document.getElementById('import-drop');
+  const importInput = document.getElementById('import-file-input');
+
+  importDrop.addEventListener('click', () => importInput.click());
+  importDrop.addEventListener('dragover', e => { e.preventDefault(); importDrop.classList.add('drag-over'); });
+  importDrop.addEventListener('dragleave', () => importDrop.classList.remove('drag-over'));
+  importDrop.addEventListener('drop', e => {
+    e.preventDefault(); importDrop.classList.remove('drag-over');
+    if (e.dataTransfer.files.length) handleImport(e.dataTransfer.files[0]);
+  });
+  importInput.addEventListener('change', e => {
+    if (e.target.files.length) handleImport(e.target.files[0]);
+  });
+
+  function handleImport(file) {
+    const reader = new FileReader();
+    reader.onload = e => {
+      try {
+        const data = JSON.parse(e.target.result);
+        if (!data.districts || !data.fipsToDistrict) {
+          showToast('Invalid file format');
+          return;
+        }
+        if (!confirm('This will replace all current data. Continue?')) return;
+        workingDistricts = data.districts;
+        workingFipsMap = data.fipsToDistrict;
+        workingShared = data.sharedCountyDistricts || {};
+        changeLog.push({
+          type: 'district-edit', districtId: 0,
+          field: 'Imported from file',
+          time: new Date().toLocaleTimeString()
+        });
+        saveToStorage();
+        refreshMap();
+        renderDistrictEditors();
+        renderChangeLog();
+        showToast('Data imported successfully');
+      } catch (err) {
+        showToast('Error parsing file: ' + err.message);
+      }
+    };
+    reader.readAsText(file);
+  }
+
+  // ── Reset ──
+  document.getElementById('reset-btn').addEventListener('click', () => {
+    if (!confirm('This will discard ALL changes and restore original data. Are you sure?')) return;
+    storage.remove(STORAGE_KEY);
+    cloneOriginal();
+    changeLog = [];
+    refreshMap();
+    renderDistrictEditors();
+    renderChangeLog();
+    updateUnsavedBar();
+    showToast('Reset to original data');
+  });
+
+  // ── Init map ──
+  initAdminMap();
+  </script>
+</body>
+</html>
