@@ -22,4 +22,4 @@
 - [ ] **Redraw district boundaries from meetings data**
   Add an admin tool (or enhance the sync feature) that regenerates the Voronoi district boundary polygons from the live meetings API data. Currently the boundaries are pre-computed in `district-boundaries.json` — this would let admins refresh them when meetings are added/moved without needing to run the Python script manually.
 
-- [ ] remove or fix visual admin tool
+- [x] ~~remove or fix visual admin tool~~ — removed in v2.0.0, replaced by wp-admin district editor

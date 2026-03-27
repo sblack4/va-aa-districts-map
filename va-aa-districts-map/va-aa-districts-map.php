@@ -418,7 +418,7 @@ function vaaa_admin_page() {
         <hr>
 
         <h2>Import / Export JSON</h2>
-        <p>For bulk edits or county reassignment, use the <a href="<?php echo esc_url( VAAA_PLUGIN_URL . 'admin-tool.html' ); ?>" target="_blank">Visual Admin Tool</a> to edit, export JSON, and paste it below.</p>
+        <p>Export the current data as JSON, or import edited JSON to update all districts and county mappings at once.</p>
         <form method="post">
           <?php wp_nonce_field( 'vaaa_save_data', 'vaaa_save_nonce' ); ?>
           <textarea name="vaaa_json_data" rows="15" style="width:100%;font-family:monospace;font-size:12px;"><?php echo esc_textarea( $current_json ); ?></textarea>
