@@ -4,7 +4,7 @@ Tags: aa, map, districts, virginia, interactive, meetings
 Requires at least: 5.0
 Tested up to: 6.7
 Requires PHP: 7.4
-Stable tag: 2.0.0
+Stable tag: 2.1.0
 License: GPLv2 or later
 
 Interactive map of Virginia Area AA districts with meeting information.
