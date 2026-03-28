@@ -226,11 +226,12 @@ def filter_outliers(raw_points, sigma_cutoff=3.0):
 
 def generate_voronoi_boundaries(dist_points, va_boundary):
     """Generate Voronoi district boundary polygons."""
-    # Deduplicate nearby points
+    # Deduplicate nearby points, prioritizing districts with fewer meetings
+    # so that small districts don't lose their only point to a larger neighbor
     unique_points = []
     unique_districts = []
     seen = set()
-    for d in sorted(dist_points.keys()):
+    for d in sorted(dist_points.keys(), key=lambda d: len(dist_points[d])):
         for p in dist_points[d]:
             key = (round(p.x, 4), round(p.y, 4))
             if key not in seen:
