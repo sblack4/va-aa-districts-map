@@ -18,6 +18,7 @@ Usage:
 
 import json
 import os
+import re
 import sys
 import urllib.request
 from collections import defaultdict
@@ -136,11 +137,27 @@ def parse_district_number(name):
         return None
 
 
+def parse_district_from_source(source_name):
+    """Extract district number from data_source_name like 'District 30 (Fredricksburg)'."""
+    if not source_name:
+        return None
+    m = re.search(r"[Dd]istrict\s+(\d+)", source_name)
+    return int(m.group(1)) if m else None
+
+
+def get_district_number(meeting):
+    """Get district number from meeting, trying district field then data_source_name."""
+    return (
+        parse_district_number(meeting.get("district"))
+        or parse_district_from_source(meeting.get("data_source_name"))
+    )
+
+
 def group_meetings_by_district(meetings, va_boundary):
     """Group meeting points by district, excluding non-geographic districts."""
     raw_points = defaultdict(list)
     for m in meetings:
-        dnum = parse_district_number(m.get("district"))
+        dnum = get_district_number(m)
         lat, lng = m.get("latitude"), m.get("longitude")
         if dnum and dnum not in EXCLUDE_DISTRICTS and lat and lng:
             p = Point(float(lng), float(lat))
@@ -149,22 +166,46 @@ def group_meetings_by_district(meetings, va_boundary):
     return raw_points
 
 
-def filter_outliers(raw_points):
-    """Remove meetings that are clearly mistagged (far from own district, close to another)."""
-    # Compute centroids
+def filter_outliers(raw_points, sigma_cutoff=3.0):
+    """Remove meetings that are clearly mistagged.
+
+    Two checks:
+      1. Statistical: drop points > sigma_cutoff std deviations from centroid
+      2. Proximity: drop points that are 3x closer to another district's centroid
+    """
+    import math
+
+    # Compute centroids and std deviations per district
     centroids = {}
+    std_devs = {}
     for dnum, pts in raw_points.items():
         cx = sum(p.x for p, _ in pts) / len(pts)
         cy = sum(p.y for p, _ in pts) / len(pts)
         centroids[dnum] = Point(cx, cy)
+        if len(pts) >= 3:
+            dists = [Point(cx, cy).distance(p) for p, _ in pts]
+            mean_d = sum(dists) / len(dists)
+            variance = sum((d - mean_d) ** 2 for d in dists) / len(dists)
+            std_devs[dnum] = math.sqrt(variance)
+        else:
+            std_devs[dnum] = None
 
     filtered = defaultdict(list)
     removed = 0
     for dnum, pts in raw_points.items():
         own_centroid = centroids[dnum]
+        sd = std_devs[dnum]
         for p, name in pts:
             own_dist = own_centroid.distance(p)
-            # Check if 3x closer to another district's centroid
+
+            # Check 1: statistical outlier (beyond N std devs from centroid)
+            if sd and own_dist > sd * sigma_cutoff and own_dist > 0.3:
+                removed += 1
+                print(f"  Outlier (>{sigma_cutoff}σ): '{name}' from d{dnum} "
+                      f"({own_dist:.2f}° vs σ={sd:.2f}°)")
+                continue
+
+            # Check 2: 3x closer to another district's centroid
             closer_to = None
             for other_dnum, other_c in centroids.items():
                 if other_dnum == dnum:
@@ -172,11 +213,12 @@ def filter_outliers(raw_points):
                 if other_c.distance(p) < own_dist * 0.3:
                     closer_to = other_dnum
                     break
-            if closer_to and own_dist > 0.5:  # >~55km from own centroid
+            if closer_to and own_dist > 0.5:
                 removed += 1
-                print(f"  Outlier: '{name}' from d{dnum} (closer to d{closer_to})")
-            else:
-                filtered[dnum].append(p)
+                print(f"  Outlier (proximity): '{name}' from d{dnum} (closer to d{closer_to})")
+                continue
+
+            filtered[dnum].append(p)
 
     print(f"  Outliers removed: {removed}")
     return filtered
@@ -239,7 +281,7 @@ def update_fips_mapping(meetings, va_counties, dist_points):
     meeting_to_county = defaultdict(lambda: defaultdict(int))
 
     for m in meetings:
-        dnum = parse_district_number(m.get("district"))
+        dnum = get_district_number(m)
         lat, lng = m.get("latitude"), m.get("longitude")
         if not (lat and lng and dnum and dnum not in EXCLUDE_DISTRICTS):
             continue

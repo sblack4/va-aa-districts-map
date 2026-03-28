@@ -7,6 +7,8 @@
   - it's also missing from https://aavirginiastag.wpengine.com/member-services/virginia-area-districts/
   - they may be included in https://aarichmond.org/meetings/ ? 
 
+- [ ] find district 30, Fredricksburg
+
 
 ## Features
 
