@@ -146,9 +146,11 @@ def parse_district_from_source(source_name):
 
 
 def get_district_number(meeting):
-    """Get district number from meeting, trying district field then data_source_name."""
+    """Get district number from meeting, trying group field first (authoritative),
+    then district field, then data_source_name."""
     return (
-        parse_district_number(meeting.get("district"))
+        parse_district_number(meeting.get("group"))
+        or parse_district_number(meeting.get("district"))
         or parse_district_from_source(meeting.get("data_source_name"))
     )
 
