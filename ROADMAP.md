@@ -2,10 +2,7 @@
 
 ## Investigate
 
-- [ ] **Figure out what happened to District 44 (Richmond West)**
-  District 44 has 59 meetings in the API data (mostly Richmond/Manakin-Sabot) but may have boundary or display issues on the map. Investigate whether it's rendering correctly and whether its Voronoi boundary accurately reflects its coverage area.
-  - it's also missing from https://aavirginiastag.wpengine.com/member-services/virginia-area-districts/
-  - they may be included in https://aarichmond.org/meetings/ ? 
+- [x] ~~Figure out what happened to District 44 (Richmond West)~~ — D44 combined into D18 per DCM D18 (Tibby H., 2026-04-12). Merge handled by `DISTRICT_MERGES` in `scripts/generate-boundaries.py`.
 
 - [ ] find district 30, Fredricksburg
 

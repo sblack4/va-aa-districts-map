@@ -39,6 +39,7 @@ MEETINGS_CACHE = Path("/tmp/vac-meetings.json")
 MEETINGS_API = "https://aavirginia.org/wp-admin/admin-ajax.php?action=meetings"
 TOPOJSON_URL = "https://cdn.jsdelivr.net/npm/us-atlas@3/counties-10m.json"
 EXCLUDE_DISTRICTS = {48}  # Statewide (Spanish Speaking) — not geographic
+DISTRICT_MERGES = {44: 18}  # D44 combined into D18 per DCM D18 request (2026-04-12)
 
 
 def fetch_meetings(force=False):
@@ -147,12 +148,13 @@ def parse_district_from_source(source_name):
 
 def get_district_number(meeting):
     """Get district number from meeting, trying group field first (authoritative),
-    then district field, then data_source_name."""
-    return (
+    then district field, then data_source_name. Applies DISTRICT_MERGES."""
+    dnum = (
         parse_district_number(meeting.get("group"))
         or parse_district_number(meeting.get("district"))
         or parse_district_from_source(meeting.get("data_source_name"))
     )
+    return DISTRICT_MERGES.get(dnum, dnum)
 
 
 def group_meetings_by_district(meetings, va_boundary):
