@@ -52,8 +52,8 @@
 - View Meetings: https://aavirginia.org/meetings/?search=%22District%2009%22
 
 ## District 10 — Loudoun
-- Meeting Day/Time: 1st Wednesday, 6:30–8:00 PM
-- Location: Holy Trinity Lutheran Church, 605 W Market St, Leesburg, VA 20176
+- Meeting Day/Time: 1st Monday, 6:45–8:00 PM
+- Location: Loudoun Club 12, 58 Sycolin Rd SE, Leesburg, VA 20175
 - Contact: dcm10@aavirginia.org
 - View Meetings: https://aavirginia.org/meetings/?search=%22District%2010%22
 
