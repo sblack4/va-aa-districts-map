@@ -11,9 +11,10 @@
     {
       "id": 2,
       "name": "Arlington",
-      "meeting": "1st Monday at 7:00 PM",
-      "location": "Resurrection Lutheran Church\n6201 Washington Boulevard\nArlington, VA 22205",
+      "meeting": "1st Monday at 6:30 PM",
+      "location": null,
       "email": "dcm2@aavirginia.org",
+      "zoom": "https://us02web.zoom.us/j/82018845130?pwd=K3ExYURRNFFjaUh5aDRsVVpXcDNTZz09 / ID: 820 1884 5130 / Passcode: Arlington",
       "region": "nova"
     },
     {

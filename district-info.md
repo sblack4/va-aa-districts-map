@@ -7,8 +7,8 @@
 - View Meetings: https://aavirginia.org/meetings/?search=%22District%2001%22
 
 ## District 2 — Arlington
-- Meeting Day/Time: 1st Monday at 7:00 PM
-- Location: Resurrection Lutheran Church, 6201 Washington Boulevard, Arlington, VA 22205
+- Meeting Day/Time: 1st Monday at 6:30 PM
+- Location: Virtual/Zoom — Meeting ID: 820 1884 5130, Passcode: Arlington (https://us02web.zoom.us/j/82018845130?pwd=K3ExYURRNFFjaUh5aDRsVVpXcDNTZz09)
 - Contact: dcm2@aavirginia.org
 - View Meetings: https://aavirginia.org/meetings/?search=%22District%2002%22
 
