@@ -265,4 +265,7 @@
 - View Meetings: https://aavirginia.org/meetings/?search=%22District%2047%22
 
 ## District 48 — Spanish Speaking (Statewide)
-- Status: Listed on map; no meeting details provided on page
+- Meeting Day/Time: Jueves de Trabajo (Business Meeting): Thursdays, 8:00–10:00 PM
+- Location: 7841-H Rolling Rd, Springfield, VA 22153 — Tel: (571) 259-2016
+- Contact: dcm48@aavirginia.org
+- View Meetings: https://aavirginia.org/meetings/?search=%22District%2048%22

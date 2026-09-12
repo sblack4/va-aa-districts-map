@@ -385,9 +385,9 @@
     {
       "id": 48,
       "name": "Spanish Speaking (Statewide)",
-      "meeting": null,
-      "location": null,
-      "email": null,
+      "meeting": "Jueves de Trabajo (Business Meeting): Thursdays, 8:00\u201310:00 PM",
+      "location": "7841-H Rolling Rd\nSpringfield, VA 22153\nTel: (571) 259-2016",
+      "email": "dcm48@aavirginia.org",
       "region": "statewide"
     }
   ],
